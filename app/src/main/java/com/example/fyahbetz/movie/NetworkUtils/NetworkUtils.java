@@ -1,6 +1,7 @@
 package com.example.fyahbetz.movie.NetworkUtils;
 
 import android.net.Uri;
+import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,6 +39,7 @@ public class NetworkUtils {
         URL url = null;
         try {
             url=new URL(builtUri.toString());
+            Log.v(url.toString() , "check url");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

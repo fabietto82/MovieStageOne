@@ -20,10 +20,12 @@ import java.util.ArrayList;
 
 public class AdapterMovie extends RecyclerView.Adapter<AdapterMovie.Holder> {
 
-    private final static String TMDB_BASE_URL = "https://api.themoviedb.org/3/movie/";
+    private final static String TMDB_BASE_URL = "http://image.tmdb.org/t/p/";
     private final Context context;
     private ArrayList<Movie> movies;
     private final MovieListenerHandler movieListenerHandler;
+    public static final String[] POSTER_SIZE = {"w92", "w154", "w185",
+            "w342", "w500", "w780", "original"};
 
     public AdapterMovie(Context context, ArrayList<Movie> movies, MovieListenerHandler movieListenerHandler) {
         this.context = context;
@@ -73,9 +75,15 @@ public class AdapterMovie extends RecyclerView.Adapter<AdapterMovie.Holder> {
 
         public void bindPicasso(int position){
            // Picasso.with(context).load(movies.get(position).getPoster_path()).into(imageView);
-            Picasso.with(context).load(TMDB_BASE_URL.concat(movies.get(position).getPoster_path()))
-                    .resize(20,30)
+
+            Picasso.with(context)
+                    .load(TMDB_BASE_URL.concat(POSTER_SIZE[2])
+                            .concat(movies.get(position)
+                                    .getPoster_path()))
                     .into(imageView);
+
+
+
             String path = TMDB_BASE_URL.concat(movies.get(position).getPoster_path());
             Log.d("home", path);
 

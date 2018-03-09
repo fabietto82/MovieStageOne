@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.fyahbetz.movie.Adapter.AdapterMovie;
 import com.example.fyahbetz.movie.JsonUtil.JsonUtils;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         recyclerView.setHasFixedSize(true);
 
         getSupportLoaderManager().initLoader(MOVIE_LOADER, null,this);
+        // Log.d("problems here  ", "problems here");
         makeMovieSearch(querySortby);
 
 
@@ -55,8 +57,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
             @Override
-            public void deliverResult(MovieList data) {
-                super.deliverResult(data);
+            public void deliverResult(MovieList movieList) {
+                super.deliverResult(movieList);
             }
 
             @Override
@@ -87,6 +89,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         this.movieList=movieList;
         adapterMovie= new AdapterMovie(this,this.movieList.getResults(),this);
         recyclerView.setAdapter(adapterMovie);
+
+        //adapterMovie.notifyDataSetChanged();
+
+
 
     }
 
