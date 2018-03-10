@@ -23,6 +23,7 @@
         android:layout_height="match_parent"
         android:id="@+id/grid_view_main"
         android:numColumns="2"
+
         android:horizontalSpacing="0dp"
         android:verticalSpacing="0dp"
         android:visibility="visible">
