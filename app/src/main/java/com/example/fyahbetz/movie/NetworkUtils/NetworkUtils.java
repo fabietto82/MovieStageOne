@@ -18,7 +18,7 @@ public class NetworkUtils {
 
     private static final String BASEURL = "http://api.themoviedb.org/3/movie";
     // put your apikey number down here..... API_KEY="6363635273....."
-    private static final String API_KEY="c311b943d7935a85908ca4ab78555beb";
+    private static final String API_KEY="";
     private static final String PARAM_API_QUERY="api_key";
     //private static final String TOTAL_URL="http://api.themoviedb.org/3/movie/popular?api_key=";
 

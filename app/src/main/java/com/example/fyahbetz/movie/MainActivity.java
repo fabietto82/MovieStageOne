@@ -39,9 +39,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         recyclerView.setHasFixedSize(true);
 
-        getSupportLoaderManager().initLoader(MOVIE_LOADER, null,this).forceLoad();
+
+
+
         // Log.d("problems here  ", "problems here");
         // makeMovieSearch(querySortby);
+
+        //adapterMovie= new AdapterMovie(this,this.movieList.getResults(),this);
+        //recyclerView.setAdapter(adapterMovie);
+
+
+        getSupportLoaderManager().initLoader(MOVIE_LOADER, null,this).forceLoad();
+
+        // adapterMovie=new AdapterMovie(this, movieList.getResults(),this);
+        // recyclerView.setAdapter(adapterMovie);
 
 
     }
@@ -69,6 +80,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
             @Override
             public void deliverResult(MovieList movieList) {
+
+
+
                 super.deliverResult(movieList);
             }
 
@@ -106,7 +120,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         adapterMovie= new AdapterMovie(this,this.movieList.getResults(),this);
         recyclerView.setAdapter(adapterMovie);
 
-        //adapterMovie.notifyDataSetChanged();
+        adapterMovie.notifyDataSetChanged();
+
 
 
 
