@@ -84,7 +84,7 @@ public class AdapterMovie extends RecyclerView.Adapter<AdapterMovie.Holder> {
 
 
 
-            String path = TMDB_BASE_URL.concat(movies.get(position).getPoster_path());
+            String path = TMDB_BASE_URL.concat(POSTER_SIZE[2]).concat(movies.get(position).getPoster_path());
             Log.d("home", path);
 
 

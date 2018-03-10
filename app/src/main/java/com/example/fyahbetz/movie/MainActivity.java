@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private RecyclerView recyclerView;
     private AdapterMovie adapterMovie;
     public final static int MOVIE_LOADER=77;
-    private static final String SEARCH_QUERY_URL_EXTRA = "query";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         recyclerView.setHasFixedSize(true);
 
-        getSupportLoaderManager().initLoader(MOVIE_LOADER, null,this);
+        getSupportLoaderManager().initLoader(MOVIE_LOADER, null,this).forceLoad();
         // Log.d("problems here  ", "problems here");
-        makeMovieSearch(querySortby);
+        // makeMovieSearch(querySortby);
 
 
     }
@@ -64,6 +64,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             @Override
             protected void onStartLoading() {
                 super.onStartLoading();
+            }
+
+            @Override
+            public void forceLoad() {
+                super.forceLoad();
             }
 
             @Override
